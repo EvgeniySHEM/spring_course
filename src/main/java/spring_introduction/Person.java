@@ -1,5 +1,8 @@
 package spring_introduction;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Person {
     private Pet pet;
     private String surname;
@@ -12,6 +15,7 @@ public class Person {
     public Person() {
     }
 
+    // pet -> setPet  Конвертация property в xml файле при внедрение зависимости с помощью сеттера
     public void setPet(Pet pet) {
         this.pet = pet;
     }
