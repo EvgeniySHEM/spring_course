@@ -1,21 +1,33 @@
 package spring_introduction;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component
+@Scope("prototype")
 public class Person {
+//    @Autowired
+//    @Qualifier("cat")
     private Pet pet;
+    @Value("${person.surname}")
     private String surname;
+    @Value("33")
     private int age;
 
-//    public Person(Pet pet) {
-//        this.pet = pet;
-//    }
-
-    public Person() {
+    @Autowired
+    public Person(@Qualifier("dog") Pet pet) {
+        this.pet = pet;
     }
 
+//    public Person() {
+//    }
+
     // pet -> setPet  Конвертация property в xml файле при внедрение зависимости с помощью сеттера
+//    @Autowired
+//    @Qualifier("cat")
     public void setPet(Pet pet) {
         this.pet = pet;
     }

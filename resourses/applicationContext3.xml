@@ -10,5 +10,6 @@
 
     <context:component-scan base-package="spring_introduction"/> <!-- Указавыем пакет,
                                                   который нужно просканировать на наличие аннотаций Component -->
+    <context:property-placeholder location="classpath:myApp.properties"/>
 
 </beans>
