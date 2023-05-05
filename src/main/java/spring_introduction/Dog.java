@@ -25,10 +25,20 @@ public class Dog implements Pet{
         System.out.println("Class Dog : init method");
     }
 
+    @PostConstruct
+    private void init2() {
+        System.out.println("Class Dog : init2 method");
+    }
+
     // destroy не вызывается для объектов со scope = prototype
     @PreDestroy
     private void destroy() {
         System.out.println("Class Dog : destroy method");
+    }
+
+    @PreDestroy
+    private void destroy2() {
+        System.out.println("Class Dog : destroy2 method");
     }
     @Override
     public void say() {

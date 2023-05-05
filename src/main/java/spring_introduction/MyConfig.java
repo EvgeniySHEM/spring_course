@@ -7,12 +7,18 @@ import org.springframework.context.annotation.*;
 //@ComponentScan("spring_introduction")
 public class MyConfig {
     @Bean
-    @Scope("singleton")
+    @Scope("singleton") // устанавливается по умолчанию
     public Pet catBean() {
         return new Cat();
     }
     @Bean
+    @Scope("prototype")
     public Person personBean() {
-        return new Person(catBean());
+        return new Person(dogBean());
+    }
+
+    @Bean
+    public Pet dogBean() {
+        return new Dog();
     }
 }
